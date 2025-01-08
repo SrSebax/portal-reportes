@@ -1,12 +1,6 @@
 <script setup lang="ts">
 import { useCustomizerStore } from '../../../stores/customizer';
-// icons
-import { MenuFoldOutlined, SearchOutlined, GithubOutlined } from '@ant-design/icons-vue';
-
-// dropdown imports
-import NotificationDD from './NotificationDD.vue';
-import Searchbar from './SearchBarPanel.vue';
-import ProfileDD from './ProfileDD.vue';
+import { MenuFoldOutlined } from '@ant-design/icons-vue';
 
 const customizer = useCustomizerStore();
 </script>
@@ -36,52 +30,8 @@ const customizer = useCustomizerStore();
       <MenuFoldOutlined :style="{ fontSize: '16px' }" />
     </v-btn>
 
-    <!-- search mobile -->
-    <v-menu :close-on-content-click="false" class="hidden-lg-and-up" offset="10, 0">
-      <template v-slot:activator="{ props }">
-        <v-btn
-          class="hidden-lg-and-up text-secondary ml-1"
-          color="lightsecondary"
-          icon
-          rounded="sm"
-          variant="flat"
-          size="small"
-          v-bind="props"
-        >
-          <SearchOutlined :style="{ fontSize: '17px' }" />
-        </v-btn>
-      </template>
-      <v-sheet class="search-sheet v-col-12 pa-0" width="320">
-        <v-text-field persistent-placeholder placeholder="Search here.." color="primary" variant="solo" hide-details>
-          <template v-slot:prepend-inner>
-            <SearchOutlined :style="{ fontSize: '17px' }" />
-          </template>
-        </v-text-field>
-      </v-sheet>
-    </v-menu>
-
-    <!-- ---------------------------------------------- -->
-    <!-- Search part -->
-    <!-- ---------------------------------------------- -->
-    <v-sheet class="d-none d-lg-block" width="250">
-      <Searchbar />
-    </v-sheet>
-
-    <!---/Search part -->
-
+  
     <v-spacer />
-    <!-- ---------------------------------------------- -->
-    <!---right part -->
-    <!-- ---------------------------------------------- -->
-
-    <!-- ---------------------------------------------- -->
-    <!-- Github -->
-    <!-- ---------------------------------------------- -->
-
-    <!-- ---------------------------------------------- -->
-    <!-- Notification -->
-    <!-- ---------------------------------------------- -->
-    <!-- <NotificationDD /> -->
 
     
   </v-app-bar>

@@ -1,10 +1,7 @@
 // icons
 import {
-  QuestionOutlined,
   DashboardOutlined,
   ChromeOutlined,
-  LoginOutlined,
-  ProfileOutlined,
   FontSizeOutlined,
   BgColorsOutlined,
   BarcodeOutlined,
@@ -34,17 +31,6 @@ const sidebarItem: menu[] = [
     icon: DashboardOutlined,
     to: '/dashboard'
   },
-  { header: 'Authentication' },
-  {
-    title: 'Login',
-    icon: LoginOutlined,
-    to: '/auth/login'
-  },
-  {
-    title: 'Register',
-    icon: ProfileOutlined,
-    to: '/auth/register'
-  },
   { header: 'Utilities' },
   {
     title: 'Typography',
@@ -72,15 +58,6 @@ const sidebarItem: menu[] = [
     icon: ChromeOutlined,
     to: '/sample-page'
   },
-  {
-    title: 'Documentation',
-    icon: QuestionOutlined,
-    to: '',
-    type: 'external',
-    chip: 'gitbook',
-    chipColor: 'secondary',
-    chipVariant: 'flat'
-  }
 ];
 
 export default sidebarItem;
