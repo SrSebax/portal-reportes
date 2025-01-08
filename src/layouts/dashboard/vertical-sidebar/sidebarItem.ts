@@ -75,7 +75,7 @@ const sidebarItem: menu[] = [
   {
     title: 'Documentation',
     icon: QuestionOutlined,
-    to: 'https://codedthemes.gitbook.io/mantis-vuetify/',
+    to: '',
     type: 'external',
     chip: 'gitbook',
     chipColor: 'secondary',
