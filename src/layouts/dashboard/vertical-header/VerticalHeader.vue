@@ -3,8 +3,10 @@ import { useCustomizerStore } from '../../../stores/customizer';
 import { MenuFoldOutlined } from '@ant-design/icons-vue';
 import TitleHeader from './TitleHeader.vue';
 import CommitDD from './CommitDD.vue';
+import { useRoute } from 'vue-router';
 
 const customizer = useCustomizerStore();
+const route = useRoute();
 </script>
 
 <template>
@@ -36,6 +38,8 @@ const customizer = useCustomizerStore();
 
     <v-spacer />
 
-    <CommitDD />
+    <template v-if="route.path === '/dashboard/coordinacion-comercial' || route.path === '/dashboard/operacion-logistica'">
+      <CommitDD />
+    </template>
   </v-app-bar>
 </template>
