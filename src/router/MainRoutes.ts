@@ -9,12 +9,19 @@ const MainRoutes = {
     {
       name: 'LandingPage',
       path: '/',
+      redirect: '/dashboard',
       component: () => import('@/views/dashboard/DefaultDashboard.vue')
     },
     {
       name: 'Dashboard',
       path: '/dashboard',
+      redirect: '/dashboard/coordinacion-comercial',
       component: () => import('@/views/dashboard/DefaultDashboard.vue')
+    },
+    {
+      name: 'DashboardReport',
+      path: '/dashboard/:reportId',
+      component: () => import('@/views/dashboard/components/PowerBIReport.vue')
     },
     {
       name: 'Typography',

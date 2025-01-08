@@ -30,12 +30,12 @@ const sidebarItem: menu[] = [
   {
     title: 'Coordinación Comercial',
     icon: TeamOutlined,
-    to: '/dashboard'
+    to: '/dashboard/coordinacion-comercial'
   },
   {
     title: 'Operación Logística',
     icon: CarOutlined,
-    to: '/report'
+    to: '/dashboard/operacion-logistica'
   },
   { header: 'Utilidades' },
   {

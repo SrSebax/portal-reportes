@@ -1,43 +1,43 @@
 <template>
-    <div class="report-container">
-      <iframe
-        title="Coordinación Comercial"
-        src="https://app.powerbi.com/view?r=eyJrIjoiOTlhOWU4MGQtYmFkNy00NTFjLTljNTMtNDVjZjQwNDhiNDA3IiwidCI6IjYzMzFkMjc2LTc1NzYtNDRlZS04ZTQ2LWNmZjhmMDJhMDZiMCJ9"
-        frameborder="0"
-        allowFullScreen="true"
-      ></iframe>
-    </div>
-  </template>
-  
-  <script setup lang="ts">
-  </script>
-  
-  <style scoped>
-  .report-container {
-    position: relative;
-    padding-bottom: 56.25%; /* Aspect ratio 16:9 */
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    background: linear-gradient(135deg, #f0f0f0, #e0e0e0); /* Gradient background */
-    border: 1px solid #ccc; /* Slightly darker border */
-    border-radius: 12px; /* More rounded corners */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  <div class="report-container">
+    <iframe
+      :title="reportTitle"
+      :src="reportUrl"
+      frameborder="0"
+      allowFullScreen="true"
+    ></iframe>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+const reports: Record<string, { title: string; url: string }> = {
+  'operacion-logistica': {
+    title: import.meta.env.VITE_OPERACION_LOGISTICA_TITLE,
+    url: import.meta.env.VITE_OPERACION_LOGISTICA_URL
+  },
+  'coordinacion-comercial': {
+    title: import.meta.env.VITE_COORDINACION_COMERCIAL_TITLE,
+    url: import.meta.env.VITE_COORDINACION_COMERCIAL_URL
   }
-  
-  .report-container:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+};
+
+const route = useRoute();
+
+const defaultReport = { title: '', url: '' };
+
+const currentReport = computed(() => {
+  const key = route.params.reportId;
+
+  if (typeof key === 'string' && key in reports) {
+    return reports[key];
   }
-  
-  .report-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-    border-radius: 12px; /* Match container's rounded corners */
-  }
-  </style>
+
+  return defaultReport;
+});
+
+const reportTitle = computed(() => currentReport.value.title || 'Reporte Desconocido');
+const reportUrl = computed(() => currentReport.value.url || '');
+</script>
