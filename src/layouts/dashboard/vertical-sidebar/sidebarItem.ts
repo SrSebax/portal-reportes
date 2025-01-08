@@ -37,9 +37,9 @@ const sidebarItem: menu[] = [
     icon: CarOutlined,
     to: '/report'
   },
-  { header: 'Utilities' },
+  { header: 'Utilidades' },
   {
-    title: 'Typography',
+    title: 'Tipografía',
     icon: FontSizeOutlined,
     to: '/typography'
   },
@@ -49,18 +49,18 @@ const sidebarItem: menu[] = [
     to: '/colors'
   },
   {
-    title: 'Shadow',
+    title: 'Sombra',
     icon: BarcodeOutlined,
     to: '/shadow'
   },
   {
-    title: 'Ant Icons',
+    title: 'Iconos Ant',
     icon: CrownOutlined,
     to: '/icon/ant'
   },
-  { header: 'Support' },
+  { header: 'Soporte' },
   {
-    title: 'Sample Page',
+    title: 'FAQ',
     icon: ChromeOutlined,
     to: '/sample-page'
   },

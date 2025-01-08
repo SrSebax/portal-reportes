@@ -8,8 +8,8 @@ import avatarGroup from '@/assets/images/users/avatar-group.png';
     <div class="d-flex align-center flex-column">
       <v-img :src="avatarGroup" alt="book" height="116px" width="169px" cover></v-img>
       <div class="px-3">
-        <h5 class="text-h5 mb-0 line-height-none">Help?</h5>
-        <small class="text-lightText text-h6"> Get to resolve query</small>
+        <h5 class="text-h5 mb-2 line-height-none">¿Ayuda?</h5>
+        <small class="text-lightText text-h6"> Obtén ayuda para resolver tu consulta</small>
       </div>
     </div>
     <div class="mt-5">
@@ -17,7 +17,7 @@ import avatarGroup from '@/assets/images/users/avatar-group.png';
         href="https://codedthemes.support-hub.io/"
         target="_blank"
         class="v-btn v-theme--DefaultTheme bg-primary v-btn--density-default v-btn--size-default v-btn--variant-flat primary-shadow"
-        >Support</a
+        >Soporte</a
       >
     </div>
   </v-sheet>
