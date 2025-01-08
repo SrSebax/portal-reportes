@@ -1,11 +1,12 @@
 // icons
 import {
-  DashboardOutlined,
   ChromeOutlined,
   FontSizeOutlined,
   BgColorsOutlined,
   BarcodeOutlined,
-  CrownOutlined
+  CrownOutlined,
+  TeamOutlined,
+  CarOutlined
 } from '@ant-design/icons-vue';
 
 export interface menu {
@@ -25,11 +26,16 @@ export interface menu {
 }
 
 const sidebarItem: menu[] = [
-  { header: 'Navigation' },
+  { header: 'Reportes PowerBI' },
   {
-    title: 'Dashboard',
-    icon: DashboardOutlined,
+    title: 'Coordinación Comercial',
+    icon: TeamOutlined,
     to: '/dashboard'
+  },
+  {
+    title: 'Operación Logística',
+    icon: CarOutlined,
+    to: '/report'
   },
   { header: 'Utilities' },
   {

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useCustomizerStore } from '../../../stores/customizer';
 import { MenuFoldOutlined } from '@ant-design/icons-vue';
+import TitleHeader from './TitleHeader.vue';
+import CommitDD from './CommitDD.vue';
 
 const customizer = useCustomizerStore();
 </script>
@@ -30,9 +32,10 @@ const customizer = useCustomizerStore();
       <MenuFoldOutlined :style="{ fontSize: '16px' }" />
     </v-btn>
 
-  
+    <TitleHeader />
+
     <v-spacer />
 
-    
+    <CommitDD />
   </v-app-bar>
 </template>
