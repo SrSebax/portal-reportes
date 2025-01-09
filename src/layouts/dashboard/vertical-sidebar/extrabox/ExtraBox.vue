@@ -14,8 +14,7 @@ import avatarGroup from '@/assets/images/users/avatar-group.png';
     </div>
     <div class="mt-5">
       <a
-        href=""
-        target="_blank"
+        href="#"
         class="v-btn v-theme--DefaultTheme bg-primary v-btn--density-default v-btn--size-default v-btn--variant-flat primary-shadow"
         >Soporte</a
       >
