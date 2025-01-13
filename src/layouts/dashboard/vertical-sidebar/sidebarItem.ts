@@ -1,4 +1,3 @@
-// icons
 import {
   ChromeOutlined,
   FontSizeOutlined,
@@ -24,49 +23,44 @@ export interface menu {
   subCaption?: string;
 }
 
-interface Report {
-  name: string;
-  url: string;
-}
-
 const sidebarItem: menu[] = [
   { header: 'Reportes PowerBI' },
   ...reportsData.workspaces.map((workspace) => ({
     title: workspace.title,
     icon: workspace.icon,
     to: `/dashboard/${workspace.title.toLowerCase().replace(/ /g, '-')}/${workspace.reports[0].name.toLowerCase().replace(/ /g, '-')}`,
-    children: workspace.reports.map((report: Report) => ({
+    children: workspace.reports.map((report) => ({
       title: report.name,
       to: `/dashboard/${workspace.title.toLowerCase().replace(/ /g, '-')}/${report.name.toLowerCase().replace(/ /g, '-')}`
-    }))
+    })),
   })),
   { header: 'Utilidades' },
   {
     title: 'Tipografía',
     icon: FontSizeOutlined,
-    to: '/typography'
+    to: '/typography',
   },
   {
     title: 'Color',
     icon: BgColorsOutlined,
-    to: '/colors'
+    to: '/colors',
   },
   {
     title: 'Sombra',
     icon: BarcodeOutlined,
-    to: '/shadow'
+    to: '/shadow',
   },
   {
     title: 'Iconos Ant',
     icon: CrownOutlined,
-    to: '/icon/ant'
+    to: '/icon/ant',
   },
   { header: 'Soporte' },
   {
     title: 'FAQ',
     icon: ChromeOutlined,
-    to: '/sample-page'
-  }
+    to: '/sample-page',
+  },
 ];
 
 export default sidebarItem;

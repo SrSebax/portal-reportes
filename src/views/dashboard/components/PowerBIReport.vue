@@ -1,11 +1,13 @@
 <template>
   <div class="report-container">
     <iframe
+      v-if="reportUrl"
       :title="reportTitle"
       :src="reportUrl"
       frameborder="0"
       allowFullScreen="true"
     ></iframe>
+    <p v-else class="error-message">El reporte no está disponible.</p>
   </div>
 </template>
 
@@ -16,9 +18,10 @@ import { reportsData } from '@/types/reportsData';
 
 const route = useRoute();
 
-const defaultReport = { title: 'Reporte Desconocido', url: '' };
+const defaultReport = { title: 'Reporte no encontrado', url: '' };
 
-const normalizeKey = (key: string | undefined) => key?.toLowerCase().replace(/ /g, '-');
+const normalizeKey = (key: string | undefined) =>
+  key?.toLowerCase().replace(/ /g, '-');
 
 const currentReport = computed(() => {
   const reportId = normalizeKey(route.params.reportId as string);
@@ -26,14 +29,16 @@ const currentReport = computed(() => {
 
   if (reportId && detailId) {
     const workspace = reportsData.workspaces.find(
-      w => normalizeKey(w.title) === reportId
+      (w) => normalizeKey(w.title) === reportId
     );
+
     if (workspace) {
       const report = workspace.reports.find(
-        r => normalizeKey(r.name) === detailId
+        (r) => normalizeKey(r.name) === detailId
       );
+
       if (report) {
-        return { title: report.name, url: report.url };
+        return { title: report.name, url: `${workspace.urlBase}&pageName=${report.pageName}` };
       }
     }
   }
@@ -53,3 +58,4 @@ watch(
   { immediate: true }
 );
 </script>
+
