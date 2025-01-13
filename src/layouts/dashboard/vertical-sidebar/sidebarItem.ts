@@ -5,9 +5,8 @@ import {
   BgColorsOutlined,
   BarcodeOutlined,
   CrownOutlined,
-  TeamOutlined,
-  CarOutlined
 } from '@ant-design/icons-vue';
+import { reportsData } from '@/types/reportsData';
 
 export interface menu {
   header?: string;
@@ -25,18 +24,22 @@ export interface menu {
   subCaption?: string;
 }
 
+interface Report {
+  name: string;
+  url: string;
+}
+
 const sidebarItem: menu[] = [
   { header: 'Reportes PowerBI' },
-  {
-    title: 'Coordinación Comercial',
-    icon: TeamOutlined,
-    to: '/dashboard/coordinacion-comercial'
-  },
-  {
-    title: 'Operación Logística',
-    icon: CarOutlined,
-    to: '/dashboard/operacion-logistica'
-  },
+  ...reportsData.workspaces.map((workspace) => ({
+    title: workspace.title,
+    icon: workspace.icon,
+    to: `/dashboard/${workspace.title.toLowerCase().replace(/ /g, '-')}/${workspace.reports[0].name.toLowerCase().replace(/ /g, '-')}`,
+    children: workspace.reports.map((report: Report) => ({
+      title: report.name,
+      to: `/dashboard/${workspace.title.toLowerCase().replace(/ /g, '-')}/${report.name.toLowerCase().replace(/ /g, '-')}`
+    }))
+  })),
   { header: 'Utilidades' },
   {
     title: 'Tipografía',
@@ -63,7 +66,7 @@ const sidebarItem: menu[] = [
     title: 'FAQ',
     icon: ChromeOutlined,
     to: '/sample-page'
-  },
+  }
 ];
 
 export default sidebarItem;

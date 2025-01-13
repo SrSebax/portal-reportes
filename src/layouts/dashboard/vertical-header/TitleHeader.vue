@@ -1,23 +1,39 @@
 <template>
   <div class="report-title">
-    Reportes PowerBi{{ reportTitle }}
+    Reportes PowerBI{{ reportTitle }}
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-
-const reports = {
-  'operacion-logistica': ' - Operación Logística',
-  'coordinacion-comercial': ' - Coordinación Comercial',
-};
+import { reportsData } from '@/types/reportsData';
 
 const route = useRoute();
 
+const capitalize = (str: string) => {
+  return str.replace(/\b\w/g, char => char.toUpperCase());
+};
+
 const reportTitle = computed(() => {
-  const key = route.params.reportId as string;
-  return reports[key as keyof typeof reports];
+  const reportId = route.params.reportId as string;
+  const detailId = route.params.detailId as string;
+
+  const workspace = reportsData.workspaces.find(
+    w => w.title.toLowerCase().replace(/ /g, '-') === reportId
+  );
+
+  if (workspace) {
+    const report = workspace.reports.find(
+      r => r.name.toLowerCase().replace(/ /g, '-') === detailId
+    );
+
+    if (report) {
+      return ` - ${workspace.title} / ${capitalize(report.name.toLowerCase())}`;
+    }
+  }
+
+  return '';
 });
 </script>
 

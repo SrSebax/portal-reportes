@@ -10,34 +10,46 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { useRoute } from 'vue-router';
-
-const reports: Record<string, { title: string; url: string }> = {
-  'operacion-logistica': {
-    title: import.meta.env.VITE_OPERACION_LOGISTICA_TITLE,
-    url: import.meta.env.VITE_OPERACION_LOGISTICA_URL
-  },
-  'coordinacion-comercial': {
-    title: import.meta.env.VITE_COORDINACION_COMERCIAL_TITLE,
-    url: import.meta.env.VITE_COORDINACION_COMERCIAL_URL
-  }
-};
+import { reportsData } from '@/types/reportsData';
 
 const route = useRoute();
 
-const defaultReport = { title: '', url: '' };
+const defaultReport = { title: 'Reporte Desconocido', url: '' };
+
+const normalizeKey = (key: string | undefined) => key?.toLowerCase().replace(/ /g, '-');
 
 const currentReport = computed(() => {
-  const key = route.params.reportId;
+  const reportId = normalizeKey(route.params.reportId as string);
+  const detailId = normalizeKey(route.params.detailId as string);
 
-  if (typeof key === 'string' && key in reports) {
-    return reports[key];
+  if (reportId && detailId) {
+    const workspace = reportsData.workspaces.find(
+      w => normalizeKey(w.title) === reportId
+    );
+    if (workspace) {
+      const report = workspace.reports.find(
+        r => normalizeKey(r.name) === detailId
+      );
+      if (report) {
+        return { title: report.name, url: report.url };
+      }
+    }
   }
 
   return defaultReport;
 });
 
-const reportTitle = computed(() => currentReport.value.title || 'Reporte Desconocido');
-const reportUrl = computed(() => currentReport.value.url || '');
+const reportTitle = ref(currentReport.value.title);
+const reportUrl = ref(currentReport.value.url);
+
+watch(
+  () => route.params,
+  () => {
+    reportTitle.value = currentReport.value.title;
+    reportUrl.value = currentReport.value.url;
+  },
+  { immediate: true }
+);
 </script>
