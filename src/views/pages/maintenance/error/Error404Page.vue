@@ -18,33 +18,5 @@
   </v-row>
 </template>
 <style lang="scss">
-.CardMediaWrapper {
-  max-width: 720px;
-  margin: 0 auto;
-  position: relative;
-  > img {
-    @media (min-width: 0px) {
-      width: 250px;
-      height: 130px;
-    }
-    @media (min-width: 768px) {
-      width: 590px;
-      height: 300px;
-    }
-  }
-}
-.CardMediaBuild {
-  position: absolute;
-  top: 60px;
-  @media (min-width: 0px) {
-    width: 130px;
-    height: 115px;
-    right: -14%;
-  }
-  @media (min-width: 768px) {
-    width: 390px;
-    height: 330px;
-    right: -60%;
-  }
-}
+
 </style>

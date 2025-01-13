@@ -1,10 +1,4 @@
-import {
-  ChromeOutlined,
-  FontSizeOutlined,
-  BgColorsOutlined,
-  BarcodeOutlined,
-  CrownOutlined,
-} from '@ant-design/icons-vue';
+import { DatabaseOutlined, LineChartOutlined, PieChartOutlined } from '@ant-design/icons-vue';
 import { reportsData } from '@/types/reportsData';
 
 export interface menu {
@@ -34,32 +28,21 @@ const sidebarItem: menu[] = [
       to: `/dashboard/${workspace.title.toLowerCase().replace(/ /g, '-')}/${report.name.toLowerCase().replace(/ /g, '-')}`
     })),
   })),
-  { header: 'Utilidades' },
+  { header: 'Datos y Análisis' },
   {
-    title: 'Tipografía',
-    icon: FontSizeOutlined,
-    to: '/typography',
+    title: 'Bases de Datos',
+    icon: DatabaseOutlined,
+    to: '/data/databases',
   },
   {
-    title: 'Color',
-    icon: BgColorsOutlined,
-    to: '/colors',
+    title: 'Análisis de Datos',
+    icon: LineChartOutlined,
+    to: '/data/analysis',
   },
   {
-    title: 'Sombra',
-    icon: BarcodeOutlined,
-    to: '/shadow',
-  },
-  {
-    title: 'Iconos Ant',
-    icon: CrownOutlined,
-    to: '/icon/ant',
-  },
-  { header: 'Soporte' },
-  {
-    title: 'FAQ',
-    icon: ChromeOutlined,
-    to: '/sample-page',
+    title: 'Visualizaciones',
+    icon: PieChartOutlined,
+    to: '/data/visualizations',
   },
 ];
 
