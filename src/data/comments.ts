@@ -1,4 +1,4 @@
-import type { Comment } from "@/types/Comment";
+import type { Comment } from "@/types/comment";
 
 export const getComments = (path: string): Comment[] => {
   if (path === '/dashboard/coordinacion-comercial') {

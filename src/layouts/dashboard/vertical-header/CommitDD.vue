@@ -3,7 +3,7 @@ import { ref, watch } from 'vue';
 import { CheckCircleOutlined, MessageOutlined } from '@ant-design/icons-vue';
 import { useRoute } from 'vue-router';
 import { getComments } from '@/data/comments';
-import type { Comment } from '@/types/Comment';
+import type { Comment } from '@/types/comment';
 
 const isActive = ref(true);
 const route = useRoute();
