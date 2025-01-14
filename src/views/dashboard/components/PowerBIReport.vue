@@ -1,5 +1,6 @@
 <template>
   <div class="report-container">
+    <NavigationButtons v-if="isMobile" class="navigation-buttons" />
     <iframe v-if="reportUrl" :title="reportTitle" :src="reportUrl" frameborder="0" allowFullScreen="true"></iframe>
     <v-row v-else no-gutters class="overflow-hidden bg-containerBg" style="min-height: 100vh">
       <v-col class="d-flex align-center justify-center">
@@ -22,6 +23,7 @@
 import { ref, computed, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { reportsData } from '@/types/reportsData';
+import NavigationButtons from './NavigationButtons.vue';
 
 const route = useRoute();
 
@@ -59,4 +61,9 @@ watch(
   },
   { immediate: true }
 );
+
+const isMobile = ref(window.innerWidth <= 600);
+window.addEventListener('resize', () => {
+  isMobile.value = window.innerWidth <= 600;
+});
 </script>

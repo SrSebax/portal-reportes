@@ -28,12 +28,25 @@
 }
 
 @media (max-width: 600px) {
+  body {
+    overflow: hidden;
+    touch-action: none;
+    font-size: 16px; 
+  }
+
   .report-container {
     height: 100vh;
     border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
   }
 
   .report-container iframe {
+    padding-top: 50%;
     border-radius: 8px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
