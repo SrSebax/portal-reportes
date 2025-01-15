@@ -30,11 +30,27 @@
   border-radius: 12px;
 }
 
+.CardError {
+  margin: 0 auto;
+  position: relative;
+  > img {
+    @media (min-width: 0px) {
+      width: 250px;
+      height: 130px;
+    }
+    @media (min-width: 768px) {
+      width: 590px;
+      height: 300px;
+    }
+  }
+}
+
 @media (max-width: 600px) {
   .report-container {
     padding-bottom: 65%;
     height: calc(100% - 50px);
     border-radius: 8px;
+    margin-top: 45%;
   }
 
   .report-container iframe {
