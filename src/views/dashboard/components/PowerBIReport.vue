@@ -1,7 +1,9 @@
 <template>
-  <div class="report-container">
-    <iframe v-if="reportUrl" :title="reportTitle" :src="reportUrl" frameborder="0" allowFullScreen="true"></iframe>
-    <v-row v-else no-gutters class="overflow-hidden bg-containerBg" style="min-height: 100vh">
+  <div>
+    <div v-if="reportUrl" class="report-container">
+      <iframe :title="reportTitle" :src="reportUrl" frameborder="0" allowFullScreen="true"></iframe>
+    </div>
+    <v-row v-else no-gutters class="overflow-hidden bg-containerBg error-container">
       <v-col class="d-flex align-center justify-center">
         <div class="text-center">
           <div class="CardMediaWrapper">
@@ -17,7 +19,6 @@
     </v-row>
   </div>
 </template>
-
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue';
 import { useRoute } from 'vue-router';
