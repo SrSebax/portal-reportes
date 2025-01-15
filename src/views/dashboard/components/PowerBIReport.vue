@@ -40,7 +40,7 @@ const currentReport = computed(() => {
       const report = workspace.reports.find((r) => normalizeKey(r.name) === detailId);
 
       if (report) {
-        return { title: report.name, url: `${workspace.urlBase}&pageName=${report.pageName}` };
+        return { title: report.name, url: `${workspace.urlBase}&pageName=${report.pageName}&navContentPaneEnabled=false` };
       }
     }
   }
