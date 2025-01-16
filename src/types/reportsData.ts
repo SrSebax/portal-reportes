@@ -20,8 +20,7 @@ export const reportsData: ReportsData = {
   workspaces: [
     {
       title: 'Operación Logística',
-      urlBase: 'https://app.powerbi.com/reportEmbed?reportId=c1ddc42c-aef5-4f90-8250-c11e42486b99&autoAuth=true&ctid=6331d276-7576-44ee-8e46-cff8f02a06b0',
-      // View: https://app.powerbi.com/view?r=eyJrIjoiYjk0ZjI1NDEtZDQ1Yi00NzNkLTgyZDQtODI2ZTFjMTZhOTY2IiwidCI6IjYzMzFkMjc2LTc1NzYtNDRlZS04ZTQ2LWNmZjhmMDJhMDZiMCJ9
+      urlBase: 'https://app.powerbi.com/view?r=eyJrIjoiYjk0ZjI1NDEtZDQ1Yi00NzNkLTgyZDQtODI2ZTFjMTZhOTY2IiwidCI6IjYzMzFkMjc2LTc1NzYtNDRlZS04ZTQ2LWNmZjhmMDJhMDZiMCJ9',
       icon: CarOutlined,
       reports: [
         { name: 'RESUMEN', pageName: 'd9cef9a27f3c7a99da2a' },
@@ -33,8 +32,7 @@ export const reportsData: ReportsData = {
     },
     {
       title: 'Coordinación Comercial',
-      urlBase: 'https://app.powerbi.com/reportEmbed?reportId=f578eca9-2279-4386-b527-0ac46a82179b&autoAuth=true&ctid=6331d276-7576-44ee-8e46-cff8f02a06b0',
-      // View: 'https://app.powerbi.com/view?r=eyJrIjoiOTlhOWU4MGQtYmFkNy00NTFjLTljNTMtNDVjZjQwNDhiNDA3IiwidCI6IjYzMzFkMjc2LTc1NzYtNDRlZS04ZTQ2LWNmZjhmMDJhMDZiMCJ9',
+      urlBase: 'https://app.powerbi.com/view?r=eyJrIjoiOTlhOWU4MGQtYmFkNy00NTFjLTljNTMtNDVjZjQwNDhiNDA3IiwidCI6IjYzMzFkMjc2LTc1NzYtNDRlZS04ZTQ2LWNmZjhmMDJhMDZiMCJ9',
       icon: TeamOutlined,
       reports: [
         { name: 'RESUMEN VENTAS', pageName: '43169b4e7b4058644a23' },

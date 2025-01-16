@@ -13,7 +13,6 @@
             </div>
           </div>
           <h1 class="text-h1 mt-16">El reporte no se encontró</h1>
-          <p class="text-h6 text-lightText">El reporte que buscas fue movido, eliminado, <br />renombrado, o nunca existió!</p>
         </div>
       </v-col>
     </v-row>
